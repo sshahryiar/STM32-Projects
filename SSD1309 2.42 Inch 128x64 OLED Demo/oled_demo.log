@@ -1,0 +1,19 @@
+0	1	mikroCARM.exe -MSF -DBG -pSTM32F103RB -BIN -LHF -DL -SSA -O11111114 -fo72 -N"C:\Users\sshah\Desktop\SSD1309 2.2 Inch 128x64 OLED Demo\oled_demo.mcpar" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\ST M3\" -SP"C:\Users\sshah\Desktop\SSD1309 2.2 Inch 128x64 OLED Demo\" -IP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\ST M3\" -IP"C:\Users\sshah\Desktop\SSD1309 2.2 Inch 128x64 OLED Demo\" "oled_demo.c" "__Lib_Math.emcl" "__Lib_MathDouble.emcl" "__Lib_Delays.emcl" "__Lib_System_101_102_103.emcl" "__Lib_GPIO_32F10x_Defs.emcl" "__Lib_GPIO_32F10x.emcl" "__Lib_SPI_123.emcl"	 
+diagnostics: 0	122	Compilation Started	ssd1309.h
+diagnostics: 136	123	Compiled Successfully	oled_demo.c
+hint: 281	1164	Variable 'ch' has been eliminated by optimizer	oled_demo.c
+hint: 322	1164	Variable 'ch' has been eliminated by optimizer	oled_demo.c
+hint: 406	1164	Variable 'ch' has been eliminated by optimizer	oled_demo.c
+hint: 578	1164	Variable 'pos' has been eliminated by optimizer	oled_demo.c
+hint: 579	1164	Variable 'temp' has been eliminated by optimizer	oled_demo.c
+hint: 596	1164	Variable 'pos' has been eliminated by optimizer	oled_demo.c
+hint: 597	1164	Variable 'temp' has been eliminated by optimizer	oled_demo.c
+hint: 13	1164	Variable 'o' has been eliminated by optimizer	oled_demo.c
+diagnostics: 0	127	All files Compiled in 250 ms	 
+hint: 0	1144	Used RX: 16 (100%)   Free RX: 0 (0%)	Used RX: 16 (100%)   Free RX: 0 (0%)
+hint: 0	1144	Static RAM (bytes): 1065   Dynamic RAM (bytes): 19409	Static RAM (bytes): 1065   Dynamic RAM (bytes): 19409
+hint: 0	1144	Used ROM (bytes): 11391 (9%)  Free ROM (bytes): 119681 (91%)	Used ROM (bytes): 11391 (9%)  Free ROM (bytes): 119681 (91%)
+diagnostics: 0	125	Project Linked Successfully	oled_demo.mcpar
+diagnostics: 0	128	Linked in 219 ms	 
+diagnostics: 0	129	Project 'oled_demo.mcpar' completed: 579 ms	 
+diagnostics: 0	103	Finished successfully: 02 Dec 2017, 19:19:09	oled_demo.mcpar
