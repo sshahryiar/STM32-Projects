@@ -1,0 +1,6 @@
+lcd_print.c:4:6:load_custom_symbol	24	static
+lcd_print.c:24:6:print_symbol	16	static
+lcd_print.c:31:6:print_C	24	static
+lcd_print.c:69:6:print_I	24	static
+lcd_print.c:130:6:print_D	24	static
+lcd_print.c:151:6:print_F	24	static

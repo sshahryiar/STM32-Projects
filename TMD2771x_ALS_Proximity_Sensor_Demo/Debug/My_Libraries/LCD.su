@@ -1,0 +1,8 @@
+LCD.c:4:6:LCD_init	8	static
+LCD.c:22:6:LCD_send	16	static
+LCD.c:42:6:LCD_4bit_send	24	static
+LCD.c:180:6:LCD_putstr	16	static
+LCD.c:189:6:LCD_putchar	16	static
+LCD.c:195:6:LCD_clear_home	8	static
+LCD.c:202:6:LCD_goto	16	static
+LCD.c:215:6:toggle_EN_pin	8	static

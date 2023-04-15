@@ -1,0 +1,5 @@
+TMD2771x.c:4:9:TMD2771x_init	16	static
+TMD2771x.c:36:10:make_word	24	static
+TMD2771x.c:48:6:TMD2771x_write_byte	32	static
+TMD2771x.c:59:9:TMD2771x_read_byte	32	static
+TMD2771x.c:76:6:TMD2771x_get_readings	56	static
