@@ -1,0 +1,7 @@
+tsl_user.c:190:6:tsl_user_Init	8	static
+tsl_user.c:204:19:tsl_user_Exec	16	static
+tsl_user.c:338:6:HAL_TSC_ConvCpltCallback	16	static
+tsl_user.c:365:19:tsl_user_Exec_IT	16	static
+tsl_user.c:444:6:tsl_user_SetThresholds	8	static
+tsl_user.c:459:8:MyTKeys_ErrorStateProcess	8	static
+tsl_user.c:471:6:MyTKeys_OffStateProcess	8	static
