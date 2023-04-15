@@ -1,0 +1,25 @@
+0	1	mikroCARM.exe -MSF -DBG -pSTM32F401RE -RA -BIN -APB -LHF -Y -DL -SSA -O11111114 -fo84 -N"C:\Users\Shawon\Desktop\Nucleo 401 LM75 OLED Thermometer\Temp.mcpar" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\ST M4\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\" -SP"C:\Users\Shawon\Desktop\Nucleo 401 LM75 OLED Thermometer\" "Temp.c" "__Lib_Math.emcl" "__Lib_MathDouble.emcl" "__Lib_Delays.emcl" "__Lib_System_4XX.emcl" "__Lib_GPIO_32F401x_Defs.emcl" "__Lib_GPIO_32F4x1.emcl" "__Lib_I2C_32F4x1_123.emcl"	 
+diagnostics: 0	122	Compilation Started	STM32F401RE.c
+diagnostics: 30273	123	Compiled Successfully	STM32F401RE.c
+diagnostics: 0	122	Compilation Started	__Lib_Delays.c
+diagnostics: 119	123	Compiled Successfully	__Lib_Delays.c
+hint: 66	1164	Variable 'cycles_div_by_10' has been eliminated by optimizer	__Lib_Delays.c
+hint: 88	1164	Variable 'NumberOfCyc' has been eliminated by optimizer	__Lib_Delays.c
+hint: 105	1164	Variable 'NumberOfCyc' has been eliminated by optimizer	__Lib_Delays.c
+diagnostics: 0	122	Compilation Started	__lib_gpio.h
+diagnostics: 803	123	Compiled Successfully	__Lib_GPIO_32F401x_Defs.c
+diagnostics: 0	122	Compilation Started	lm75.h
+diagnostics: 79	123	Compiled Successfully	Temp.c
+hint: 59	1164	Variable 'value' has been eliminated by optimizer	Temp.c
+hint: 77	1164	Variable 'temp' has been eliminated by optimizer	Temp.c
+hint: 235	1164	Variable 'ch' has been eliminated by optimizer	Temp.c
+hint: 276	1164	Variable 'ch' has been eliminated by optimizer	Temp.c
+hint: 360	1164	Variable 'ch' has been eliminated by optimizer	Temp.c
+diagnostics: 0	127	All files Compiled in 984 ms	 
+hint: 0	1144	Used RX: 16 (100%)   Free RX: 0 (0%)	Used RX: 16 (100%)   Free RX: 0 (0%)
+hint: 0	1144	Static RAM (bytes): 1060   Dynamic RAM (bytes): 97241	Static RAM (bytes): 1060   Dynamic RAM (bytes): 97241
+hint: 0	1144	Used ROM (bytes): 10608 (2%)  Free ROM (bytes): 513680 (98%)	Used ROM (bytes): 10608 (2%)  Free ROM (bytes): 513680 (98%)
+diagnostics: 0	125	Project Linked Successfully	Temp.mcpar
+diagnostics: 0	128	Linked in 1094 ms	 
+diagnostics: 0	129	Project 'Temp.mcpar' completed: 5297 ms	 
+diagnostics: 0	103	Finished successfully: 30 Apr 2016, 15:42:19	Temp.mcpar

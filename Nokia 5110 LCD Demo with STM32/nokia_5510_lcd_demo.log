@@ -1,0 +1,20 @@
+0	1	mikroCARM.exe -MSF -DBG -pSTM32F103C8 -RA -BIN -LHF -DL -SSA -O11111114 -fo72 -N"C:\Users\Shawon & Nipa\Desktop\Nokia 5110 LCD Demo with STM32\nokia_5510_lcd_demo.mcpar" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\ST M3\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\" -SP"C:\Users\Shawon & Nipa\Desktop\Nokia 5110 LCD Demo with STM32\" "nokia_5510_lcd_demo.c" "__Lib_Math.emcl" "__Lib_MathDouble.emcl" "__Lib_Delays.emcl" "__Lib_System_101_102_103.emcl" "__Lib_GPIO_32F10x_Defs.emcl" "__Lib_GPIO_32F10x.emcl"	 
+diagnostics: 0	122	Compilation Started	STM32F103C8.c
+diagnostics: 36415	123	Compiled Successfully	STM32F103C8.c
+diagnostics: 0	122	Compilation Started	__Lib_Delays.c
+diagnostics: 118	123	Compiled Successfully	__Lib_Delays.c
+hint: 66	1164	Variable 'cycles_div_by_10' has been eliminated by optimizer	__Lib_Delays.c
+hint: 87	1164	Variable 'NumberOfCyc' has been eliminated by optimizer	__Lib_Delays.c
+hint: 104	1164	Variable 'NumberOfCyc' has been eliminated by optimizer	__Lib_Delays.c
+diagnostics: 0	122	Compilation Started	__lib_gpio.h
+diagnostics: 814	123	Compiled Successfully	__Lib_GPIO_32F10x_Defs.c
+diagnostics: 0	122	Compilation Started	font.c
+diagnostics: 95	123	Compiled Successfully	nokia_5510_lcd_demo.c
+diagnostics: 0	127	All files Compiled in 406 ms	 
+hint: 0	1144	Used RX: 16 (100%)   Free RX: 0 (0%)	Used RX: 16 (100%)   Free RX: 0 (0%)
+hint: 0	1144	Static RAM (bytes): 525   Dynamic RAM (bytes): 19949	Static RAM (bytes): 525   Dynamic RAM (bytes): 19949
+hint: 0	1144	Used ROM (bytes): 8543 (13%)  Free ROM (bytes): 56993 (87%)	Used ROM (bytes): 8543 (13%)  Free ROM (bytes): 56993 (87%)
+diagnostics: 0	125	Project Linked Successfully	nokia_5510_lcd_demo.mcpar
+diagnostics: 0	128	Linked in 1437 ms	 
+diagnostics: 0	129	Project 'nokia_5510_lcd_demo.mcpar' completed: 4500 ms	 
+diagnostics: 0	103	Finished successfully: 11 Dec 2015, 00:18:09	nokia_5510_lcd_demo.mcpar

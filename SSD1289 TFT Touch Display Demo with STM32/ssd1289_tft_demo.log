@@ -1,0 +1,16 @@
+0	1	mikroCARM.exe -MSF -DBG -pSTM32F103RC -RA -APB -LHF -Y -DL -SSA -O11111114 -fo72 -N"C:\Users\SShahryiar\Desktop\tft\SSD1289 TFT Touch Display Demo\ssd1289_tft_demo.mcpar" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\" -SP"C:\Users\SShahryiar\Desktop\tft\SSD1289 TFT Touch Display Demo\" -SP"C:\Users\sshah\Desktop\SSD1289 TFT Touch Display Demo\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\ST M3\" -IP"C:\Users\sshah\Desktop\SSD1289 TFT Touch Display Demo\" "ssd1289_tft_demo.c" "__Lib_Math.emcl" "__Lib_MathDouble.emcl" "__Lib_Delays.emcl" "__Lib_System_101_102_103.emcl" "__Lib_GPIO_32F10x_Defs.emcl" "__Lib_GPIO_32F10x.emcl"	 
+warning: 0	1501	Specified search path does not exist: 'C:\Users\sshah\Desktop\SSD1289 TFT Touch Display Demo'	 
+warning: 0	1502	Specified include path does not exist: 'C:\Users\sshah\Desktop\SSD1289 TFT Touch Display Demo'	 
+diagnostics: 0	122	Compilation Started	STM32F103RC.c
+diagnostics: 30441	123	Compiled Successfully	STM32F103RC.c
+diagnostics: 0	122	Compilation Started	__Lib_Delays.c
+diagnostics: 118	123	Compiled Successfully	__Lib_Delays.c
+diagnostics: 0	122	Compilation Started	__lib_gpio.h
+diagnostics: 814	123	Compiled Successfully	__Lib_GPIO_32F10x_Defs.c
+diagnostics: 0	122	Compilation Started	bmp.c
+diagnostics: 194	123	Compiled Successfully	ssd1289_tft_demo.c
+diagnostics: 0	127	All files Compiled in 2109 ms	 
+diagnostics: 0	125	Project Linked Successfully	ssd1289_tft_demo.mcpar
+diagnostics: 0	128	Linked in 953 ms	 
+diagnostics: 0	129	Project 'ssd1289_tft_demo.mcpar' completed: 8265 ms	 
+diagnostics: 0	103	Finished successfully: 22 Jun 2016, 11:38:52	ssd1289_tft_demo.mcpar
