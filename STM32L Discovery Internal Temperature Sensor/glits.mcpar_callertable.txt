@@ -1,0 +1,31 @@
+main
+	__CC2DW
+	__FillZeros
+	setup_LCD
+		LCD_GLASS_Init
+			LCD_GLASS_Configure_GPIO
+			LCD_Master_Reset
+				LCD_RAM_clear
+			LCD_GLASS_Clear
+				LCD_RAM_clear
+		LCD_GLASS_Clear
+	setup_ADC
+		NVIC_IntEnable
+		NVIC_SetIntPriority
+	setup_GPIOs
+	show_value
+		LCD_GLASS_WriteChar
+			LCD_Conv_Char_Seg
+			LCD_bar
+		show_const_msgs
+			show_degree_C
+				LCD_GLASS_WriteChar
+			clear_disp
+				LCD_GLASS_WriteChar
+		clear_disp
+	_UnsignedIntegralToFloat
+	_Mul_FP
+	_Add_FP
+	_Sub_FP
+	_FloatToSignedIntegral
+ADC_ISR

@@ -1,0 +1,35 @@
+0	1	mikroCARM.exe -MSF -DBG -pSTM32F429ZI -RA -BIN -APB -LHF -Y -DL -SSA -O11111114 -fo168 -N"C:\Users\SShahryiar\Desktop\STM32F429ZI ILI9341 TFT Display Demo\tft_disp_demo.mcpar" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\" -SP"C:\Users\SShahryiar\Desktop\STM32F429ZI ILI9341 TFT Display Demo\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\ST M4\" -IP"C:\Users\SShahryiar\Desktop\STM32F429ZI ILI9341 TFT Display Demo\" "tft_disp_demo.c" "__Lib_Math.emcl" "__Lib_MathDouble.emcl" "__Lib_Delays.emcl" "__Lib_System_4XXHS.emcl" "__Lib_GPIO_32F42x_43x_Defs.emcl" "__Lib_GPIO_32F42x_43x.emcl" "__Lib_I2C_123.emcl" "__Lib_SPI_123456.emcl"	 
+diagnostics: 0	122	Compilation Started	STM32F429ZI.c
+diagnostics: 64958	123	Compiled Successfully	STM32F429ZI.c
+diagnostics: 0	122	Compilation Started	__Lib_Delays.c
+diagnostics: 119	123	Compiled Successfully	__Lib_Delays.c
+hint: 66	1164	Variable 'cycles_div_by_10' has been eliminated by optimizer	__Lib_Delays.c
+hint: 88	1164	Variable 'NumberOfCyc' has been eliminated by optimizer	__Lib_Delays.c
+hint: 105	1164	Variable 'NumberOfCyc' has been eliminated by optimizer	__Lib_Delays.c
+diagnostics: 0	122	Compilation Started	__lib_gpio.h
+diagnostics: 944	123	Compiled Successfully	__Lib_GPIO_32F42x_43x_Defs.c
+diagnostics: 0	122	Compilation Started	font.c
+warning: 189	1505	Suspicious pointer conversion	tft_disp_demo.c
+diagnostics: 192	123	Compiled Successfully	tft_disp_demo.c
+hint: 195	1164	Variable 'hb' has been eliminated by optimizer	tft_disp_demo.c
+hint: 325	1164	Variable 'r' has been eliminated by optimizer	tft_disp_demo.c
+hint: 326	1164	Variable 'g' has been eliminated by optimizer	tft_disp_demo.c
+hint: 327	1164	Variable 'b' has been eliminated by optimizer	tft_disp_demo.c
+hint: 328	1164	Variable 'rgb_colour' has been eliminated by optimizer	tft_disp_demo.c
+hint: 442	1164	Variable 'pos' has been eliminated by optimizer	tft_disp_demo.c
+hint: 443	1164	Variable 'temp' has been eliminated by optimizer	tft_disp_demo.c
+hint: 460	1164	Variable 'pos' has been eliminated by optimizer	tft_disp_demo.c
+hint: 461	1164	Variable 'temp' has been eliminated by optimizer	tft_disp_demo.c
+hint: 769	1164	Variable 'value' has been eliminated by optimizer	tft_disp_demo.c
+hint: 117	1164	Variable 'value' has been eliminated by optimizer	tft_disp_demo.c
+hint: 127	1164	Variable 'value' has been eliminated by optimizer	tft_disp_demo.c
+hint: 137	1164	Variable 'temp' has been eliminated by optimizer	tft_disp_demo.c
+hint: 141	1164	Variable 'tp' has been eliminated by optimizer	tft_disp_demo.c
+diagnostics: 0	127	All files Compiled in 2031 ms	 
+hint: 0	1144	Used RX: 16 (100%)   Free RX: 0 (0%)	Used RX: 16 (100%)   Free RX: 0 (0%)
+hint: 0	1144	Static RAM (bytes): 48   Dynamic RAM (bytes): 196557	Static RAM (bytes): 48   Dynamic RAM (bytes): 196557
+hint: 0	1144	Used ROM (bytes): 168139 (8%)  Free ROM (bytes): 1929013 (92%)	Used ROM (bytes): 168139 (8%)  Free ROM (bytes): 1929013 (92%)
+diagnostics: 0	125	Project Linked Successfully	tft_disp_demo.mcpar
+diagnostics: 0	128	Linked in 1438 ms	 
+diagnostics: 0	129	Project 'tft_disp_demo.mcpar' completed: 5750 ms	 
+diagnostics: 0	103	Finished successfully: 01 Oct 2016, 16:33:41	tft_disp_demo.mcpar
