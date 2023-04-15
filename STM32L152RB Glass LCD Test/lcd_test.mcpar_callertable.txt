@@ -1,0 +1,19 @@
+main
+	__CC2DW
+	__FillZeros
+	LCD_GLASS_Init
+		LCD_GLASS_Configure_GPIO
+		LCD_Master_Reset
+			LCD_RAM_clear
+		LCD_GLASS_Clear
+			LCD_RAM_clear
+	LCD_GLASS_DisplayString
+		LCD_GLASS_WriteChar
+			LCD_Conv_Char_Seg
+			LCD_bar
+	LCD_GLASS_Clear
+	LCD_GLASS_ScrollSentence
+		LCD_GLASS_DisplayString
+		VDelay_ms
+			Delay_Cyc
+		LCD_GLASS_Clear
