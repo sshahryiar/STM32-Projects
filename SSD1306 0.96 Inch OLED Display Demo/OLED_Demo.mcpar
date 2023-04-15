@@ -1,0 +1,60 @@
+[DEVICE]
+Name=STM32F051R8
+Clock=48000000
+[MEMORY_MODEL]
+Value=0
+[BUILD_TYPE]
+Value=0
+[ACTIVE_TAB]
+Value=OLED_Demo.c
+[USE_EEPROM]
+Value=0
+[USE_HEAP]
+Value=0
+[HEAP_SIZE]
+Value=0
+[EEPROM_DEFINITION]
+Value=
+[FILES]
+Count=1
+File0=OLED_Demo.c
+[BINARIES]
+Count=0
+[IMAGES]
+Count=0
+ActiveImageIndex=-1
+[OPENED_FILES]
+Count=4
+File0=OLED_Demo.c
+File1=SSD1306.c
+File2=SSD1306.h
+File3=fonts.c
+[EEPROM]
+Count=0
+[ACTIVE_COMMENTS_FILES]
+Count=0
+[OTHER_FILES]
+Count=0
+[SEARCH_PATH]
+Count=4
+Path0=C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Defs\
+Path1=C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\
+Path2=C:\Users\Shawon & Nipa\Desktop\SSD1306 0.96 Inch OLED Display Demo\
+Path3=C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for ARM\Uses\ST M0\
+[HEADER_PATH]
+Count=1
+Path0=C:\Users\Shawon & Nipa\Desktop\SSD1306 0.96 Inch OLED Display Demo\
+[HEADERS]
+Count=0
+[PLDS]
+Count=0
+[Useses]
+Count=1
+File0=C_Math
+[EXPANDED_NODES]
+Node0=Sources
+Count=1
+[PROGRAMMER_OPTIONS]
+Value=SWD
+[PROGRAMMER_TYPE]
+Value=mE

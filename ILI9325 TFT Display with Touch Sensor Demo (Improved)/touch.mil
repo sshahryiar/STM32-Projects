@@ -1,0 +1,35 @@
+_touch_init:
+  begin   (midx: 0)
+  end
+   (midx: 0)
+_touch_GPIO_init:
+  begin   (midx: 0)
+//touch.c,9 :: 		void touch_GPIO_init()
+_touch_GPIO_init:
+  begin   (midx: 0)
+//touch.c,11 :: 		GPIO_Clk_Enable(&GPIOA_BASE);
+	R0 <4> <- #GPIOA_BASE   (midx: 0)
+	CALL _GPIO_Clk_Enable   (midx: 0)
+//touch.c,14 :: 		(_GPIO_CFG_MODE_OUTPUT | _GPIO_CFG_SPEED_MAX | _GPIO_CFG_OTYPE_PP));
+	R2 <4> <- 524308   (midx: 0)
+//touch.c,13 :: 		(_GPIO_PINMASK_4 | _GPIO_PINMASK_5 | _GPIO_PINMASK_7),
+	R1 <2> <- 176   (midx: 0)
+//touch.c,12 :: 		GPIO_Config(&GPIOA_BASE,
+	R0 <4> <- #GPIOA_BASE   (midx: 0)
+//touch.c,14 :: 		(_GPIO_CFG_MODE_OUTPUT | _GPIO_CFG_SPEED_MAX | _GPIO_CFG_OTYPE_PP));
+	CALL _GPIO_Config   (midx: 0)
+//touch.c,16 :: 		GPIO_Config(&GPIOA_BASE, _GPIO_PINMASK_6, (_GPIO_CFG_DIGITAL_INPUT | _GPIO_CFG_PULL_UP));
+	R2 <4> <- 194   (midx: 0)
+	R1 <2> <- 64   (midx: 0)
+	R0 <4> <- #GPIOA_BASE   (midx: 0)
+	CALL _GPIO_Config   (midx: 0)
+//touch.c,18 :: 		GPIO_Clk_Enable(&GPIOC_BASE);
+	R0 <4> <- #GPIOC_BASE   (midx: 0)
+	CALL _GPIO_Clk_Enable   (midx: 0)
+//touch.c,19 :: 		GPIO_Config(&GPIOC_BASE, _GPIO_PINMASK_13, (_GPIO_CFG_DIGITAL_INPUT | _GPIO_CFG_PULL_UP));
+	R2 <4> <- 194   (midx: 0)
+	R1 <2> <- 8192   (midx: 0)
+	R0 <4> <- #GPIOC_BASE   (midx: 0)
+	CALL _GPIO_Config   (midx: 0)
+  end
+   (midx: 0)

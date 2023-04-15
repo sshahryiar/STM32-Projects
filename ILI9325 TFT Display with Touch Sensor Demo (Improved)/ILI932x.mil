@@ -1,0 +1,952 @@
+_RGB565_converter:
+  begin   (midx: 0)
+//ILI932x.c,4 :: 		unsigned int RGB565_converter(unsigned char r, unsigned char g, unsigned char b)
+_RGB565_converter:
+  begin   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	R0 <1> <- R0   (midx: 0)
+	R1 <1> <- R1   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	R2 <1> <- R2   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+//ILI932x.c,6 :: 		return (((((unsigned int)r) >> 3) << 11) | ((((unsigned int)g) >> 2) << 5) | (((unsigned int)b) >> 3));
+   (midx: 0)
+	R3 <2> <- R0   (midx: 0)
+	R3 <2> <-  R3 shr 3   (midx: 1)
+	R4 <2> <-  R3 shl 11   (midx: 1)
+   (midx: 0)
+	R3 <2> <- R1   (midx: 0)
+	R3 <2> <-  R3 shr 2   (midx: 1)
+	R3 <2> <-  R3 shl 5   (midx: 1)
+	R4 <2> <-  R4 | R3   (midx: 1)
+   (midx: 0)
+	R3 <2> <- R2   (midx: 0)
+	R3 <2> <-  R3 shr 3   (midx: 1)
+	R3 <2> <-  R4 | R3   (midx: 1)
+	R0 <2> <- R3   (midx: 0)
+	return   (midx: 0)
+  end
+   (midx: 0)
+_TFT_write:
+  begin   (midx: 0)
+//ILI932x.c,17 :: 		void TFT_write(unsigned int value, unsigned char mode)
+_TFT_write:
+  begin   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	R0 <2> <- R0   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	R1 <1> <- R1   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+//ILI932x.c,19 :: 		TFT_CS_pin = 0;
+	R4 <1> <- 0   (midx: 0)
+	R2 <4> <- addr(GPIOC_ODRbits+0)   (midx: 0)
+	[R2] <0> <- R4   (midx: 20)
+//ILI932x.c,20 :: 		TFT_RS_pin = mode;
+	R2 <4> <- addr(GPIOC_ODRbits+0)   (midx: 0)
+   (midx: 0)
+	[R2] <0> <- R1   (midx: 20)
+//ILI932x.c,21 :: 		TFT_data_out_port_low = ((TFT_data_out_port_low & 0xFF00) | (value & 0x00FF));
+	R2 <4> <- addr(GPIOC_ODR)   (midx: 0)
+	R2 <4> <- [R2]   (midx: 0)
+	R3 <4> <-  R2 & 65280   (midx: 2)
+	R2 <2> <-  R0 & 255   (midx: 1)
+	R3 <4> <-  R3 | R2   (midx: 2)
+	R2 <4> <- addr(GPIOC_ODR)   (midx: 0)
+	[R2] <4> <- R3   (midx: 0)
+//ILI932x.c,22 :: 		TFT_data_out_port_high = ((TFT_data_out_port_high & 0x00FF) | (value & 0xFF00));
+	R2 <4> <- addr(GPIOB_ODR)   (midx: 0)
+	R2 <4> <- [R2]   (midx: 0)
+	R3 <4> <-  R2 & 255   (midx: 2)
+   (midx: 0)
+	R2 <2> <-  R0 & 65280   (midx: 1)
+	R3 <4> <-  R3 | R2   (midx: 2)
+	R2 <4> <- addr(GPIOB_ODR)   (midx: 0)
+	[R2] <4> <- R3   (midx: 0)
+//ILI932x.c,23 :: 		TFT_WR_pin = 0;
+	R2 <4> <- addr(GPIOC_ODRbits+0)   (midx: 0)
+	[R2] <0> <- R4   (midx: 20)
+//ILI932x.c,24 :: 		TFT_WR_pin = 1;
+	R3 <1> <- 1   (midx: 0)
+	R2 <4> <- addr(GPIOC_ODRbits+0)   (midx: 0)
+	[R2] <0> <- R3   (midx: 20)
+//ILI932x.c,25 :: 		TFT_CS_pin = 1;
+	R2 <4> <- addr(GPIOC_ODRbits+0)   (midx: 0)
+	[R2] <0> <- R3   (midx: 20)
+  end
+   (midx: 0)
+_TFT_write_reg:
+  begin   (midx: 0)
+//ILI932x.c,10 :: 		void TFT_write_reg(unsigned int reg_val, unsigned int data_val)
+_TFT_write_reg:
+  begin   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	R0 <2> <- R0   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	R5 <2> <- R1   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+//ILI932x.c,12 :: 		TFT_write(reg_val, CMD);
+	R1 <1> <- 0   (midx: 0)
+   (midx: 0)
+	R0 <2> <- R0   (midx: 0)
+	CALL _TFT_write   (midx: 0)
+//ILI932x.c,13 :: 		TFT_write(data_val, DAT);
+	R1 <1> <- 1   (midx: 0)
+   (midx: 0)
+	R0 <2> <- R5   (midx: 0)
+	CALL _TFT_write   (midx: 0)
+  end
+   (midx: 0)
+_TFT_read:
+  begin   (midx: 0)
+//ILI932x.c,29 :: 		unsigned int TFT_read(unsigned int value, unsigned char mode)
+_TFT_read:
+  begin   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	R0 <2> <- R0   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	R1 <1> <- R1   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+//ILI932x.c,31 :: 		unsigned int temp = 0x0000;
+   (midx: 0)
+//ILI932x.c,33 :: 		switch(mode)
+   (midx: 0)
+	goto	0   (midx: 0)
+//ILI932x.c,35 :: 		case REG:
+2:   (midx: 0)
+//ILI932x.c,37 :: 		TFT_write(value, CMD);
+	R1 <1> <- 0   (midx: 0)
+   (midx: 0)
+	R0 <2> <- R0   (midx: 0)
+	CALL _TFT_write   (midx: 0)
+//ILI932x.c,38 :: 		break;
+	goto	1   (midx: 0)
+//ILI932x.c,40 :: 		case DAT:
+3:   (midx: 0)
+//ILI932x.c,42 :: 		break;
+	goto	1   (midx: 0)
+//ILI932x.c,44 :: 		}
+0:   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	if ( R1 = 0) then goto 2   (midx: 0)
+   (midx: 0)
+	if ( R1 = 1) then goto 3   (midx: 0)
+1:   (midx: 0)
+//ILI932x.c,46 :: 		TFT_port_config_high = 0x44444444;
+	R3 <4> <- 1145324612   (midx: 0)
+	R2 <4> <- addr(GPIOB_CRH)   (midx: 0)
+	[R2] <4> <- R3   (midx: 0)
+//ILI932x.c,47 :: 		TFT_port_config_low = 0x44444444;
+	R3 <4> <- 1145324612   (midx: 0)
+	R2 <4> <- addr(GPIOC_CRL)   (midx: 0)
+	[R2] <4> <- R3   (midx: 0)
+//ILI932x.c,49 :: 		TFT_CS_pin = 0;
+	R3 <1> <- 0   (midx: 0)
+	R2 <4> <- addr(GPIOC_ODRbits+0)   (midx: 0)
+	[R2] <0> <- R3   (midx: 20)
+//ILI932x.c,50 :: 		TFT_RS_pin = 1;
+	R5 <1> <- 1   (midx: 0)
+	R2 <4> <- addr(GPIOC_ODRbits+0)   (midx: 0)
+	[R2] <0> <- R5   (midx: 20)
+//ILI932x.c,51 :: 		TFT_RD_pin = 0;
+	R2 <4> <- addr(GPIOC_ODRbits+0)   (midx: 0)
+	[R2] <0> <- R3   (midx: 20)
+//ILI932x.c,53 :: 		temp = ((TFT_data_in_port_high & 0xFF00) | (TFT_data_in_port_low & 0x00FF));
+	R2 <4> <- addr(GPIOB_IDR)   (midx: 0)
+	R2 <4> <- [R2]   (midx: 0)
+	R3 <4> <-  R2 & 65280   (midx: 2)
+	R2 <4> <- addr(GPIOC_IDR)   (midx: 0)
+	R2 <4> <- [R2]   (midx: 0)
+	R2 <4> <-  R2 & 255   (midx: 2)
+	R4 <4> <-  R3 | R2   (midx: 2)
+//ILI932x.c,55 :: 		TFT_RD_pin = 1;
+	R2 <4> <- addr(GPIOC_ODRbits+0)   (midx: 0)
+	[R2] <0> <- R5   (midx: 20)
+//ILI932x.c,56 :: 		TFT_CS_pin = 1;
+	R2 <4> <- addr(GPIOC_ODRbits+0)   (midx: 0)
+	[R2] <0> <- R5   (midx: 20)
+//ILI932x.c,59 :: 		TFT_port_config_high = 0x33333333;
+	R3 <4> <- 858993459   (midx: 0)
+	R2 <4> <- addr(GPIOB_CRH)   (midx: 0)
+	[R2] <4> <- R3   (midx: 0)
+//ILI932x.c,60 :: 		TFT_port_config_low = 0x33333333;
+	R3 <4> <- 858993459   (midx: 0)
+	R2 <4> <- addr(GPIOC_CRL)   (midx: 0)
+	[R2] <4> <- R3   (midx: 0)
+//ILI932x.c,62 :: 		return temp;
+	R0 <2> <- R4   (midx: 0)
+	return   (midx: 0)
+  end
+   (midx: 0)
+_TFT_GPIO_init:
+  begin   (midx: 0)
+//ILI932x.c,66 :: 		void TFT_GPIO_init()
+_TFT_GPIO_init:
+  begin   (midx: 0)
+//ILI932x.c,68 :: 		GPIO_Clk_Enable(&GPIOB_BASE);
+	R0 <4> <- #GPIOB_BASE   (midx: 0)
+	CALL _GPIO_Clk_Enable   (midx: 0)
+//ILI932x.c,72 :: 		(_GPIO_CFG_MODE_OUTPUT | _GPIO_CFG_SPEED_MAX | _GPIO_CFG_OTYPE_PP));
+	R2 <4> <- 524308   (midx: 0)
+//ILI932x.c,71 :: 		| _GPIO_PINMASK_12 | _GPIO_PINMASK_13 | _GPIO_PINMASK_14 | _GPIO_PINMASK_15),
+	R1 <2> <- 65280   (midx: 0)
+//ILI932x.c,69 :: 		GPIO_Config(&GPIOB_BASE,
+	R0 <4> <- #GPIOB_BASE   (midx: 0)
+//ILI932x.c,72 :: 		(_GPIO_CFG_MODE_OUTPUT | _GPIO_CFG_SPEED_MAX | _GPIO_CFG_OTYPE_PP));
+	CALL _GPIO_Config   (midx: 0)
+//ILI932x.c,75 :: 		GPIO_Clk_Enable(&GPIOC_BASE);
+	R0 <4> <- #GPIOC_BASE   (midx: 0)
+	CALL _GPIO_Clk_Enable   (midx: 0)
+//ILI932x.c,82 :: 		(_GPIO_CFG_MODE_OUTPUT | _GPIO_CFG_SPEED_MAX | _GPIO_CFG_OTYPE_PP));
+	R2 <4> <- 524308   (midx: 0)
+//ILI932x.c,81 :: 		| _GPIO_PINMASK_12),
+	R1 <2> <- 8191   (midx: 0)
+//ILI932x.c,76 :: 		GPIO_Config(&GPIOC_BASE,
+	R0 <4> <- #GPIOC_BASE   (midx: 0)
+//ILI932x.c,82 :: 		(_GPIO_CFG_MODE_OUTPUT | _GPIO_CFG_SPEED_MAX | _GPIO_CFG_OTYPE_PP));
+	CALL _GPIO_Config   (midx: 0)
+  end
+   (midx: 0)
+_TFT_set_cursor:
+  begin   (midx: 0)
+//ILI932x.c,226 :: 		void TFT_set_cursor(unsigned int x_pos, unsigned int y_pos)
+_TFT_set_cursor:
+  begin   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	R0 <2> <- R0   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	R6 <2> <- R1   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+//ILI932x.c,228 :: 		TFT_write_reg(R32, x_pos);
+   (midx: 0)
+	R1 <2> <- R0   (midx: 0)
+	R0 <2> <- 32   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,229 :: 		TFT_write_reg(R33, y_pos);
+   (midx: 0)
+	R1 <2> <- R6   (midx: 0)
+	R0 <2> <- 33   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+  end
+   (midx: 0)
+_TFT_write_RAM_prepare:
+  begin   (midx: 0)
+//ILI932x.c,220 :: 		void TFT_write_RAM_prepare()
+_TFT_write_RAM_prepare:
+  begin   (midx: 0)
+//ILI932x.c,222 :: 		TFT_write(R34, CMD);
+	R1 <1> <- 0   (midx: 0)
+	R0 <2> <- 34   (midx: 0)
+	CALL _TFT_write   (midx: 0)
+  end
+   (midx: 0)
+_TFT_clear:
+  begin   (midx: 0)
+//ILI932x.c,233 :: 		void TFT_clear(unsigned int colour)
+_TFT_clear:
+  begin   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	R7 <2> <- R0   (midx: 0)
+   (midx: 0)
+//ILI932x.c,235 :: 		unsigned long index = 0;
+   (midx: 0)
+//ILI932x.c,237 :: 		TFT_set_cursor(0, 0);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 0   (midx: 0)
+	CALL _TFT_set_cursor   (midx: 0)
+//ILI932x.c,238 :: 		TFT_write_RAM_prepare();
+	CALL _TFT_write_RAM_prepare   (midx: 0)
+//ILI932x.c,240 :: 		for(index = 0; index < 76800; index++)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	R0 <4> <- 0   (midx: 0)
+	R6 <2> <- R7   (midx: 0)
+	R7 <4> <- R0   (midx: 0)
+20:   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	if ( R7 >= 76800) then goto 21   (midx: 2)
+//ILI932x.c,242 :: 		TFT_write_reg(colour, DAT);
+   (midx: 0)
+	R1 <2> <- 1   (midx: 0)
+	R0 <2> <- R6   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,240 :: 		for(index = 0; index < 76800; index++)
+	R7 <4> <-  R7 + 1   (midx: 2)
+	R7 <4> <- R7   (midx: 0)
+//ILI932x.c,243 :: 		}
+   (midx: 0)
+   (midx: 0)
+	R6 <2> <- R6   (midx: 0)
+	R7 <4> <- R7   (midx: 0)
+	goto	20   (midx: 0)
+21:   (midx: 0)
+  end
+   (midx: 0)
+_TFT_init:
+  begin   (midx: 0)
+//ILI932x.c,86 :: 		void TFT_init()
+_TFT_init:
+  begin   (midx: 0)
+//ILI932x.c,90 :: 		TFT_GPIO_init();
+	CALL _TFT_GPIO_init   (midx: 0)
+//ILI932x.c,92 :: 		TFT_write_reg(0x0000, 0x0001);
+	R1 <2> <- 1   (midx: 0)
+	R0 <2> <- 0   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,93 :: 		delay_ms(50);
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 2)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 5)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+//ILI932x.c,95 :: 		device_code = TFT_read(0x0000, REG);
+	R1 <1> <- 0   (midx: 0)
+	R0 <2> <- 0   (midx: 0)
+	CALL _TFT_read   (midx: 0)
+	R1 <4> <- addr(TFT_init_device_code_L0)   (midx: 0)
+	[R1] <2> <- R0   (midx: 0)
+//ILI932x.c,98 :: 		if((device_code == 0x9325) || (device_code == 0x9328))
+	R1 <4> <- 37669   (midx: 0)
+	if ( R0 = R1) then goto 26   (midx: 1)
+	R0 <4> <- addr(TFT_init_device_code_L0)   (midx: 0)
+	R1 <2> <- [R0]   (midx: 0)
+	R0 <4> <- 37672   (midx: 0)
+	if ( R1 = R0) then goto 25   (midx: 1)
+	goto	7   (midx: 0)
+26:   (midx: 0)
+25:   (midx: 0)
+//ILI932x.c,100 :: 		TFT_write_reg(0x00E5, 0x78F0);
+	R1 <2> <- 30960   (midx: 0)
+	R0 <2> <- 229   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,102 :: 		TFT_write_reg(0x0001, 0x0100);
+	R1 <2> <- 256   (midx: 0)
+	R0 <2> <- 1   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,103 :: 		TFT_write_reg(0x0002, 0x0700);
+	R1 <2> <- 1792   (midx: 0)
+	R0 <2> <- 2   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,104 :: 		TFT_write_reg(0x0003, 0x1030);
+	R1 <2> <- 4144   (midx: 0)
+	R0 <2> <- 3   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,105 :: 		TFT_write_reg(0x0004, 0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 4   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,106 :: 		TFT_write_reg(0x0008, 0x0202);
+	R1 <2> <- 514   (midx: 0)
+	R0 <2> <- 8   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,107 :: 		TFT_write_reg(0x0009, 0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 9   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,108 :: 		TFT_write_reg(0x000A, 0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 10   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,109 :: 		TFT_write_reg(0x000C, 0x0001);
+	R1 <2> <- 1   (midx: 0)
+	R0 <2> <- 12   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,110 :: 		TFT_write_reg(0x000D, 0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 13   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,111 :: 		TFT_write_reg(0x000F, 0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 15   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,113 :: 		TFT_write_reg(0x0010, 0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 16   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,114 :: 		TFT_write_reg(0x0011, 0x0007);
+	R1 <2> <- 7   (midx: 0)
+	R0 <2> <- 17   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,115 :: 		TFT_write_reg(0x0012, 0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 18   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,116 :: 		TFT_write_reg(0x0013, 0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 19   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,117 :: 		TFT_write_reg(0x0007, 0x0001);
+	R1 <2> <- 1   (midx: 0)
+	R0 <2> <- 7   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,118 :: 		delay_ms(50);
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 2)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 5)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+//ILI932x.c,119 :: 		TFT_write_reg(0x0010, 0x1690);
+	R1 <2> <- 5776   (midx: 0)
+	R0 <2> <- 16   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,120 :: 		TFT_write_reg(0x0011, 0x0227);
+	R1 <2> <- 551   (midx: 0)
+	R0 <2> <- 17   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,121 :: 		delay_ms(50);
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 2)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 5)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+//ILI932x.c,122 :: 		TFT_write_reg(0x0012, 0x009D);
+	R1 <2> <- 157   (midx: 0)
+	R0 <2> <- 18   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,123 :: 		delay_ms(50);
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 2)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 5)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+//ILI932x.c,124 :: 		TFT_write_reg(0x0013, 0x1900);
+	R1 <2> <- 6400   (midx: 0)
+	R0 <2> <- 19   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,125 :: 		TFT_write_reg(0x0029, 0x0025);
+	R1 <2> <- 37   (midx: 0)
+	R0 <2> <- 41   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,126 :: 		TFT_write_reg(0x002B, 0x000D);
+	R1 <2> <- 13   (midx: 0)
+	R0 <2> <- 43   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,127 :: 		delay_ms(50);
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 2)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 5)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+//ILI932x.c,128 :: 		TFT_write_reg(0x0020,0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 32   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,129 :: 		TFT_write_reg(0x0021,0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 33   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,130 :: 		delay_ms(50);
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 2)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 5)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+//ILI932x.c,132 :: 		TFT_write_reg(0x0030, 0x0007);
+	R1 <2> <- 7   (midx: 0)
+	R0 <2> <- 48   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,133 :: 		TFT_write_reg(0x0031, 0x0303);
+	R1 <2> <- 771   (midx: 0)
+	R0 <2> <- 49   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,134 :: 		TFT_write_reg(0x0032, 0x0003);
+	R1 <2> <- 3   (midx: 0)
+	R0 <2> <- 50   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,135 :: 		TFT_write_reg(0x0035, 0x0206);
+	R1 <2> <- 518   (midx: 0)
+	R0 <2> <- 53   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,136 :: 		TFT_write_reg(0x0036, 0x0008);
+	R1 <2> <- 8   (midx: 0)
+	R0 <2> <- 54   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,137 :: 		TFT_write_reg(0x0037, 0x0406);
+	R1 <2> <- 1030   (midx: 0)
+	R0 <2> <- 55   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,138 :: 		TFT_write_reg(0x0038, 0x0304);
+	R1 <2> <- 772   (midx: 0)
+	R0 <2> <- 56   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,139 :: 		TFT_write_reg(0x0039, 0x0007);
+	R1 <2> <- 7   (midx: 0)
+	R0 <2> <- 57   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,140 :: 		TFT_write_reg(0x003C, 0x0602);
+	R1 <2> <- 1538   (midx: 0)
+	R0 <2> <- 60   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,141 :: 		TFT_write_reg(0x003D, 0x0008);
+	R1 <2> <- 8   (midx: 0)
+	R0 <2> <- 61   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,142 :: 		delay_ms(50);
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 2)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 5)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+//ILI932x.c,143 :: 		TFT_write_reg(0x0050, 0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 80   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,144 :: 		TFT_write_reg(0x0051, 0x00EF);
+	R1 <2> <- 239   (midx: 0)
+	R0 <2> <- 81   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,145 :: 		TFT_write_reg(0x0052, 0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 82   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,146 :: 		TFT_write_reg(0x0053, 0x013F);
+	R1 <2> <- 319   (midx: 0)
+	R0 <2> <- 83   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,148 :: 		TFT_write_reg(0x0060, 0xA700);
+	R1 <2> <- 42752   (midx: 0)
+	R0 <2> <- 96   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,149 :: 		TFT_write_reg(0x0061, 0x0001);
+	R1 <2> <- 1   (midx: 0)
+	R0 <2> <- 97   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,150 :: 		TFT_write_reg(0x006A, 0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 106   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,151 :: 		TFT_write_reg(0x0080, 0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 128   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,152 :: 		TFT_write_reg(0x0081, 0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 129   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,153 :: 		TFT_write_reg(0x0082, 0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 130   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,154 :: 		TFT_write_reg(0x0083, 0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 131   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,155 :: 		TFT_write_reg(0x0084, 0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 132   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,156 :: 		TFT_write_reg(0x0085, 0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 133   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,158 :: 		TFT_write_reg(0x0090, 0x0010);
+	R1 <2> <- 16   (midx: 0)
+	R0 <2> <- 144   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,159 :: 		TFT_write_reg(0x0092, 0x0600);
+	R1 <2> <- 1536   (midx: 0)
+	R0 <2> <- 146   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,161 :: 		TFT_write_reg(0x0007, 0x0133);
+	R1 <2> <- 307   (midx: 0)
+	R0 <2> <- 7   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,162 :: 		}
+7:   (midx: 0)
+//ILI932x.c,164 :: 		if((device_code == 0x9320) || (device_code == 0x9300))
+	R0 <4> <- addr(TFT_init_device_code_L0)   (midx: 0)
+	R1 <2> <- [R0]   (midx: 0)
+	R0 <4> <- 37664   (midx: 0)
+	if ( R1 = R0) then goto 28   (midx: 1)
+	R0 <4> <- addr(TFT_init_device_code_L0)   (midx: 0)
+	R0 <2> <- [R0]   (midx: 0)
+	if ( R0 = 37632) then goto 27   (midx: 1)
+	goto	16   (midx: 0)
+28:   (midx: 0)
+27:   (midx: 0)
+//ILI932x.c,166 :: 		TFT_write_reg(0x00, 0x0000);
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 0   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,167 :: 		TFT_write_reg(0x01, 0x0100);   //Driver Output Contral.
+	R1 <2> <- 256   (midx: 0)
+	R0 <2> <- 1   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,168 :: 		TFT_write_reg(0x02, 0x0700);   //LCD Driver Waveform Contral.
+	R1 <2> <- 1792   (midx: 0)
+	R0 <2> <- 2   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,169 :: 		TFT_write_reg(0x03, 0x1030);//Entry Mode Set.
+	R1 <2> <- 4144   (midx: 0)
+	R0 <2> <- 3   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,172 :: 		TFT_write_reg(0x04, 0x0000);   //Scalling Contral.
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 4   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,173 :: 		TFT_write_reg(0x08, 0x0202);   //Display Contral 2.(0x0207)
+	R1 <2> <- 514   (midx: 0)
+	R0 <2> <- 8   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,174 :: 		TFT_write_reg(0x09, 0x0000);   //Display Contral 3.(0x0000)
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 9   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,175 :: 		TFT_write_reg(0x0A, 0x0000);   //Frame Cycle Contal.(0x0000)
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 10   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,176 :: 		TFT_write_reg(0x0C, (1 << 0));   //Extern Display Interface Contral 1.(0x0000)
+	R1 <2> <- 1   (midx: 0)
+	R0 <2> <- 12   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,177 :: 		TFT_write_reg(0x0D, 0x0000);   //Frame Maker Position.
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 13   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,178 :: 		TFT_write_reg(0x0F, 0x0000);   //Extern Display Interface Contral 2.
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 15   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,179 :: 		delay_ms(10);
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 2)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 5)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+//ILI932x.c,180 :: 		TFT_write_reg(0x07, 0x0101);   //Display Contral.
+	R1 <2> <- 257   (midx: 0)
+	R0 <2> <- 7   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,181 :: 		delay_ms(10);
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 2)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 5)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+//ILI932x.c,182 :: 		TFT_write_reg(0x10, (1 << 12) | (0 << 8)| (1 << 7)| (1 << 6)| (0 << 4));   //Power Control 1.(0x16b0)
+	R1 <2> <- 4288   (midx: 0)
+	R0 <2> <- 16   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,183 :: 		TFT_write_reg(0x11, 0x0007);                        //Power Control 2.(0x0001)
+	R1 <2> <- 7   (midx: 0)
+	R0 <2> <- 17   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,184 :: 		TFT_write_reg(0x12, (1 << 8) | (1 << 4)| (0 << 0));            //Power Control 3.(0x0138)
+	R1 <2> <- 272   (midx: 0)
+	R0 <2> <- 18   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,185 :: 		TFT_write_reg(0x13, 0x0B00);                        //Power Control 4.
+	R1 <2> <- 2816   (midx: 0)
+	R0 <2> <- 19   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,186 :: 		TFT_write_reg(0x29, 0x0000);                        //Power Control 7.
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 41   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,188 :: 		TFT_write_reg(0x2B, (1 << 14) | (1 << 4));
+	R1 <2> <- 16400   (midx: 0)
+	R0 <2> <- 43   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,189 :: 		TFT_write_reg(0x50, 0x00);   //Set X Star
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 80   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,191 :: 		TFT_write_reg(0x51, 239);   //Set Y Star
+	R1 <2> <- 239   (midx: 0)
+	R0 <2> <- 81   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,192 :: 		TFT_write_reg(0x52, 0x00);   //Set Y End.t.
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 82   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,193 :: 		TFT_write_reg(0x53, 319);   //
+	R1 <2> <- 319   (midx: 0)
+	R0 <2> <- 83   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,195 :: 		TFT_write_reg(0x60, 0x2700);   //Driver Output Control.
+	R1 <2> <- 9984   (midx: 0)
+	R0 <2> <- 96   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,196 :: 		TFT_write_reg(0x61, 0x0001);   //Driver Output Control.
+	R1 <2> <- 1   (midx: 0)
+	R0 <2> <- 97   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,197 :: 		TFT_write_reg(0x6A, 0x0000);   //Vertical Srcoll Control.
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 106   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,199 :: 		TFT_write_reg(0x80, 0x0000);   //Display Position? Partial Display 1.
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 128   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,200 :: 		TFT_write_reg(0x81, 0x0000);   //RAM Address Start? Partial Display 1.
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 129   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,201 :: 		TFT_write_reg(0x82, 0x0000);   //RAM Address End-Partial Display 1.
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 130   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,202 :: 		TFT_write_reg(0x83, 0x0000);   //Displsy Position? Partial Display 2.
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 131   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,203 :: 		TFT_write_reg(0x84, 0x0000);   //RAM Address Start? Partial Display 2.
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 132   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,204 :: 		TFT_write_reg(0x85, 0x0000);   //RAM Address End? Partial Display 2.
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 133   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,206 :: 		TFT_write_reg(0x90, (0 << 7)|(16 << 0));   //Frame Cycle Contral.(0x0013)
+	R1 <2> <- 16   (midx: 0)
+	R0 <2> <- 144   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,207 :: 		TFT_write_reg(0x92, 0x0000);   //Panel Interface Contral 2.(0x0000)
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 146   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,208 :: 		TFT_write_reg(0x93, 0x0001);   //Panel Interface Contral 3.
+	R1 <2> <- 1   (midx: 0)
+	R0 <2> <- 147   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,209 :: 		TFT_write_reg(0x95, 0x0110);   //Frame Cycle Contral.(0x0110)
+	R1 <2> <- 272   (midx: 0)
+	R0 <2> <- 149   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,210 :: 		TFT_write_reg(0x97, (0 << 8));   //
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 151   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,211 :: 		TFT_write_reg(0x98, 0x0000);   //Frame Cycle Contral.
+	R1 <2> <- 0   (midx: 0)
+	R0 <2> <- 152   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,212 :: 		TFT_write_reg(0x07, 0x0173);   //(0x0173)
+	R1 <2> <- 371   (midx: 0)
+	R0 <2> <- 7   (midx: 0)
+	CALL _TFT_write_reg   (midx: 0)
+//ILI932x.c,213 :: 		delay_ms(100);
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 2)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 5)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+	asm: -1   (midx: 1)
+//ILI932x.c,214 :: 		}
+16:   (midx: 0)
+//ILI932x.c,216 :: 		TFT_clear(Black);
+	R0 <2> <- 0   (midx: 0)
+	CALL _TFT_clear   (midx: 0)
+  end
+   (midx: 0)
+_Draw_Pixel:
+  begin   (midx: 0)
+//ILI932x.c,247 :: 		void Draw_Pixel(unsigned int x_pos, unsigned int y_pos, unsigned int colour)
+_Draw_Pixel:
+  begin   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	R0 <2> <- R0   (midx: 0)
+	R1 <2> <- R1   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	R7 <2> <- R2   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+//ILI932x.c,249 :: 		TFT_set_cursor(x_pos, y_pos);
+   (midx: 0)
+	R1 <2> <- R1   (midx: 0)
+   (midx: 0)
+	R0 <2> <- R0   (midx: 0)
+	CALL _TFT_set_cursor   (midx: 0)
+//ILI932x.c,250 :: 		TFT_write_RAM_prepare();
+	CALL _TFT_write_RAM_prepare   (midx: 0)
+//ILI932x.c,251 :: 		TFT_write(colour, DAT);
+	R1 <1> <- 1   (midx: 0)
+   (midx: 0)
+	R0 <2> <- R7   (midx: 0)
+	CALL _TFT_write   (midx: 0)
+  end
+   (midx: 0)
+_TFT_BGR2RGB:
+  begin   (midx: 0)
+//ILI932x.c,271 :: 		unsigned int TFT_BGR2RGB(unsigned int colour)
+_TFT_BGR2RGB:
+  begin   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	R0 <2> <- R0   (midx: 0)
+   (midx: 0)
+//ILI932x.c,273 :: 		unsigned int r = 0x0000;
+   (midx: 0)
+//ILI932x.c,274 :: 		unsigned int g = 0x0000;
+   (midx: 0)
+//ILI932x.c,275 :: 		unsigned int b = 0x0000;
+   (midx: 0)
+//ILI932x.c,276 :: 		unsigned int rgb_colour = 0x0000;
+   (midx: 0)
+//ILI932x.c,278 :: 		b = ((colour >> 0)  & 0x1F);
+	R2 <2> <-  R0 & 31   (midx: 1)
+//ILI932x.c,279 :: 		g = ((colour >> 5)  & 0x3F);
+	R1 <2> <-  R0 shr 5   (midx: 1)
+	R4 <2> <-  R1 & 63   (midx: 1)
+//ILI932x.c,280 :: 		r = ((colour >> 11) & 0x1F);
+   (midx: 0)
+	R1 <2> <-  R0 shr 11   (midx: 1)
+	R3 <2> <-  R1 & 31   (midx: 1)
+//ILI932x.c,282 :: 		rgb_colour = ((b << 11) + (g << 5) + (r << 0));
+	R2 <2> <-  R2 shl 11   (midx: 1)
+	R1 <2> <-  R4 shl 5   (midx: 1)
+	R1 <2> <-  R2 + R1   (midx: 1)
+	R1 <2> <-  R1 + R3   (midx: 1)
+//ILI932x.c,284 :: 		return rgb_colour;
+	R0 <2> <- R1   (midx: 0)
+	return   (midx: 0)
+  end
+   (midx: 0)
+_Get_Pixel:
+  begin   (midx: 0)
+//ILI932x.c,255 :: 		unsigned int Get_Pixel(unsigned int x_pos, unsigned int y_pos)
+_Get_Pixel:
+  begin   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	R0 <2> <- R0   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+	R1 <2> <- R1   (midx: 0)
+   (midx: 0)
+   (midx: 0)
+//ILI932x.c,257 :: 		unsigned int value = 0x0000;
+   (midx: 0)
+//ILI932x.c,259 :: 		TFT_set_cursor(x_pos, y_pos);
+   (midx: 0)
+	R1 <2> <- R1   (midx: 0)
+   (midx: 0)
+	R0 <2> <- R0   (midx: 0)
+	CALL _TFT_set_cursor   (midx: 0)
+//ILI932x.c,260 :: 		TFT_CS_pin = 0;
+	R3 <1> <- 0   (midx: 0)
+	R2 <4> <- addr(GPIOC_ODRbits+0)   (midx: 0)
+	[R2] <0> <- R3   (midx: 20)
+//ILI932x.c,261 :: 		TFT_write_RAM_prepare();
+	CALL _TFT_write_RAM_prepare   (midx: 0)
+//ILI932x.c,262 :: 		value = TFT_read(0x0000, DAT);
+	R1 <1> <- 1   (midx: 0)
+	R0 <2> <- 0   (midx: 0)
+	CALL _TFT_read   (midx: 0)
+//ILI932x.c,263 :: 		value = TFT_read(0x0000, DAT);
+	R1 <1> <- 1   (midx: 0)
+	R0 <2> <- 0   (midx: 0)
+	CALL _TFT_read   (midx: 0)
+//ILI932x.c,264 :: 		TFT_CS_pin = 1;
+	R3 <1> <- 1   (midx: 0)
+	R2 <4> <- addr(GPIOC_ODRbits+0)   (midx: 0)
+	[R2] <0> <- R3   (midx: 20)
+//ILI932x.c,265 :: 		value = TFT_BGR2RGB(value);
+	R0 <2> <- R0   (midx: 0)
+	CALL _TFT_BGR2RGB   (midx: 0)
+//ILI932x.c,267 :: 		return value;
+	R0 <2> <- R0   (midx: 0)
+	return   (midx: 0)
+  end
+   (midx: 0)
