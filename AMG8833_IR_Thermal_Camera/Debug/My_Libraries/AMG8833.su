@@ -1,0 +1,13 @@
+AMG8833.c:4:6:AMG8833_init	8	static
+AMG8833.c:24:6:AMG8833_write_byte	32	static
+AMG8833.c:35:6:AMG8833_write_word	32	static
+AMG8833.c:47:9:AMG8833_read_byte	32	static
+AMG8833.c:64:10:AMG8833_read_word	32	static
+AMG8833.c:83:6:AMG8833_set_upper_interrupt_limit	16	static
+AMG8833.c:90:6:AMG8833_set_lower_interrupt_limit	16	static
+AMG8833.c:97:6:AMG8833_set_interrupt_hystersis_level	16	static
+AMG8833.c:104:9:AMG8833_get_interrupt_status	16	static
+AMG8833.c:122:6:AMG8833_get_pixel_interrupt_status	32	static
+AMG8833.c:133:7:AMG8833_get_temperature	16	static
+AMG8833.c:161:6:AMG8833_read_pixel_temperature_register_value	24	static
+AMG8833.c:181:6:AMG8833_read_pixel_temperature	40	static
