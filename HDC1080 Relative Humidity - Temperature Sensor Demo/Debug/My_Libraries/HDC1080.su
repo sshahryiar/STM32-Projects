@@ -1,0 +1,10 @@
+HDC1080.c:4:6:HDC1080_init	8	static
+HDC1080.c:20:6:HDC1080_write_configutaion_register	32	static
+HDC1080.c:30:10:HDC1080_read_configutaion_register	24	static
+HDC1080.c:46:10:HDC1080_read_manufacturer_ID	24	static
+HDC1080.c:62:10:HDC1080_read_device_ID	24	static
+HDC1080.c:78:10:HDC1080_read_serial_ID_H	24	static
+HDC1080.c:94:10:HDC1080_read_serial_ID_M	24	static
+HDC1080.c:110:9:HDC1080_read_serial_ID_L	24	static
+HDC1080.c:126:7:HDC1080_read_temperature	32	static
+HDC1080.c:146:7:HDC1080_read_humidity	32	static
