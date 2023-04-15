@@ -1,0 +1,12 @@
+tsl_acq_tsc.c:43:19:TSL_acq_BankConfig	48	static
+tsl_acq_tsc.c:116:6:TSL_acq_BankStartAcq	8	static
+tsl_acq_tsc.c:141:6:TSL_acq_BankStartAcq_IT	8	static
+tsl_acq_tsc.c:166:19:TSL_acq_BankWaitEOC	16	static
+tsl_acq_tsc.c:199:13:TSL_acq_GetMeas	16	static
+tsl_acq_tsc.c:218:14:TSL_acq_ComputeDelta	16	static
+tsl_acq_tsc.c:230:13:TSL_acq_ComputeMeas	16	static
+tsl_acq_tsc.c:241:22:TSL_acq_CheckNoise	8	static
+tsl_acq_tsc.c:252:17:TSL_acq_UseFilter	16	static
+tsl_acq_tsc.c:263:17:TSL_acq_TestReferenceOutOfRange	16	static
+tsl_acq_tsc.c:275:17:TSL_acq_TestFirstReferenceIsValid	16	static
+tsl_acq_tsc.c:299:6:SoftDelay	24	static

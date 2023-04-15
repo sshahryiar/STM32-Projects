@@ -1,0 +1,3 @@
+tsl_object.c:42:6:TSL_obj_GroupInit	32	static
+tsl_object.c:136:6:TSL_obj_GroupProcess	32	static
+tsl_object.c:230:6:TSL_obj_SetGlobalObj	16	static
