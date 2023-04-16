@@ -1,0 +1,8 @@
+../My_Libraries/AHT10.c:4:6:AHT10_init	8	static
+../My_Libraries/AHT10.c:11:6:AHT10_set_normal_mode	24	static
+../My_Libraries/AHT10.c:22:6:AHT10_set_cyclic_mode	24	static
+../My_Libraries/AHT10.c:33:6:AHT10_soft_reset	24	static
+../My_Libraries/AHT10.c:42:6:AHT10_read_buffer	24	static
+../My_Libraries/AHT10.c:54:15:AHT10_read_status	16	static
+../My_Libraries/AHT10.c:72:7:AHT10_read_temperature	24	static
+../My_Libraries/AHT10.c:107:7:AHT10_read_humidity	16	static
