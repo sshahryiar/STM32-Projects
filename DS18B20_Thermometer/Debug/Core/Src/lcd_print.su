@@ -1,0 +1,6 @@
+../Core/Src/lcd_print.c:4:6:load_custom_symbol	32	static
+../Core/Src/lcd_print.c:24:6:print_symbol	24	static
+../Core/Src/lcd_print.c:31:6:print_C	32	static
+../Core/Src/lcd_print.c:68:6:print_I	32	static
+../Core/Src/lcd_print.c:128:6:print_D	32	static
+../Core/Src/lcd_print.c:148:6:print_F	32	static

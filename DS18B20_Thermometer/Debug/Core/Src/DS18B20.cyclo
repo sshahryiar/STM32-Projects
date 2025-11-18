@@ -1,0 +1,2 @@
+../Core/Src/DS18B20.c:4:6:DS18B20_init	1
+../Core/Src/DS18B20.c:12:7:DS18B20_get_temperature	2

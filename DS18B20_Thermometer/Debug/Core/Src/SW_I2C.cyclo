@@ -1,0 +1,10 @@
+../Core/Src/SW_I2C.c:4:6:SW_I2C_GPIO_init	1
+../Core/Src/SW_I2C.c:11:6:SW_I2C_SDA_OUT_init	1
+../Core/Src/SW_I2C.c:23:6:SW_I2C_SDA_IN_init	1
+../Core/Src/SW_I2C.c:38:6:SW_I2C_init	1
+../Core/Src/SW_I2C.c:48:6:SW_I2C_start	1
+../Core/Src/SW_I2C.c:60:6:SW_I2C_stop	1
+../Core/Src/SW_I2C.c:72:9:SW_I2C_read	4
+../Core/Src/SW_I2C.c:114:6:SW_I2C_write	3
+../Core/Src/SW_I2C.c:143:6:SW_I2C_ACK_NACK	2
+../Core/Src/SW_I2C.c:169:9:SW_I2C_wait_ACK	3
